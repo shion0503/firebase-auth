@@ -1,15 +1,19 @@
-import type { NextRequest } from 'next/server'
-import { NextResponse } from 'next/server'
-import firebase_app from "../firebase-config"; 
-import { getAuth } from 'firebase/auth';
+// middleware.ts
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
+const publicPaths = ["/signin", "/signup"];
 
-export async function middleware(request: NextRequest) {
-    const auth = getAuth(firebase_app);
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  if (publicPaths.includes(pathname)) {
+    return NextResponse.next();
+  }
+
+  return NextResponse.next();
 }
 
-
 export const config = {
-    matcher: ['/'],
-  };
-   
+  matcher: ["/"],
+};
