@@ -31,7 +31,7 @@ export default function SignInPage() {
   };
 
   // メール・パスワードでサインイン
-  const signInWithEmail = async (e) => {
+  const signInWithEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);

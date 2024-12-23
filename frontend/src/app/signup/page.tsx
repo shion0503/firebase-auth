@@ -25,24 +25,24 @@ export default function SignUpPage() {
       const user = result.user;
       console.log('Google sign-up success:', user);
       router.push('/');
-    } catch (e) {
-      if (e instanceof FirebaseError) {
-        setError(e);
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        setError(error);
       }
     }
   };
 
   // メール・パスワードでサインアップ
-  const signUpWithEmail = async (e) => {
+  const signUpWithEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       setEmail('');
       setPassword('');
       router.push('/'); 
-    } catch (e) {
-      if (e instanceof FirebaseError) {
-        setError(e);
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        setError(error);
       }
     }
   };

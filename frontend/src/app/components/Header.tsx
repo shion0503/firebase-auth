@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { redirect } from 'next/navigation';
 import firebase_app from "../../../firebase-config";
 import { getAuth, signOut } from 'firebase/auth';
 import { FirebaseError } from '@firebase/util';

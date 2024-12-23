@@ -1,6 +1,6 @@
 // app/page.tsx
 "use client";
-import Form from "@/app/components/Form";
+import UploadForm from "@/app/components/UploadForm";
 import Header from "@/app/components/Header";
 import { useEffect, useState } from "react";
 import firebase_app from "../../firebase-config";
@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <Form />
+      <UploadForm />
     </div>
   );
 }
